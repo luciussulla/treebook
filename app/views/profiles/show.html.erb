@@ -1,2 +1,15 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<h1><%= @user.first_name %></h1>
+
+<p>This is the profile page</p>
+<p>These are the statuses: </p>
+
+<% if @statuses %> 
+    <% @statuses.each do |s| %> 
+        <div class="well">
+        <%= s.content %><br/> 
+        <%= link_to time_ago_in_words(s.created_at), s %> 
+        </div>
+    <% end %> 
+<% else %> 
+    <h3>There are no statuses yet</h3>
+<% end %> 

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   devise_scope :user do 
     get 'register', to: 'devise/registrations#new', as: :register
   end 
+ 
+ get '/:profile_name', to: 'profiles#show'
   
 end
 
