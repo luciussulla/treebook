@@ -1,11 +1,14 @@
 module ApplicationHelper
     
     def flash_class(type)
-        if type == :notice
-            return "alert-success"
-        elsif type == :alert
-            return "alert-error"
-        end
+        case type
+        when :notice 
+            'alert-success'
+        when :alert
+            'alert-success'
+        else 
+            'alert-success'
+        end 
     end 
 
 end

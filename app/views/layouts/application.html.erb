@@ -20,21 +20,26 @@
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
           <% else %> 
             <li><%= link_to "Log in", new_user_session_path %> </li>
-            <li><%= link_to "Register", new_user_registration_path %> </li>
+            <li><%= link_to "Register", register_path %> </li>
           <% end %> 
         </ul>
       </div>
     </nav>
 
   <div class="container">
-    <% flash.each do |type, msg| %>
-      <div class="alert <%= flash_class type %>">
-        <button class="close" data-dismiss="alert">x</button>
-        <%= msg %> 
-      </div>
-    <% end %> 
+  
+    <div class="col-md-12">
+        <% flash.each do |message_type, message| %> 
+            <div class= "alert alert-<%= message_type%>">
+              <%= message %> 
+              <a class="close" data-dismiss="alert">&#215;</a>
+            </div>
+        <% end %>
+    </div>    
+
     <%= yield %>
-  </div>
+    
+  </div><!-- container --> 
   
 </body>
 </html>
